@@ -1,47 +1,35 @@
+# Examples 1:
+(No output - empty .gitignore since only source/config files)
+
+# Example 2:
 ```
-# Python
-__pycache__/
+# Compiled and build artifacts
 *.pyc
-*.pyo
-*.pyd
-.Python
-*.so
-.coverage
-coverage/
-htmlcov/
+__pycache__/
+*.o
+*.obj
+dist/
+build/
+
+# Dependencies
+.venv/
+venv/
+node_modules/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
 
 # Environment
 .env
 .env.local
 .env.*
-.venv/
-venv/
-ENV/
-
-# Dependencies
-node_modules/
-julia-*/
-zig*/
-
-# Build artifacts
-dist/
-build/
-target/
-*.egg-info/
 
 # Editors
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# System
-.DS_Store
-Thumbs.db
-
-# Logs
+# Original rules preserved
 *.log
-
-# Temp files
-*.tmp
 ```

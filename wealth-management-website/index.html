@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige Wealth Management | Secure Your Financial Future</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-dark: #0a1628;
+            --primary-gold: #c9a959;
+            --light-gold: #f4e4bc;
+            --white: #ffffff;
+            --gray-medium: #6c757d;
+            --gradient-gold: linear-gradient(135deg, #c9a959 0%, #f4e4bc 50%, #c9a959 100%);
+        }
+        body { font-family: 'Georgia', serif; background: var(--primary-dark); color: var(--white); overflow-x: hidden; }
+        nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(201, 169, 89, 0.2); }
+        .logo { font-size: 1.8rem; font-weight: bold; color: var(--primary-gold); text-transform: uppercase; letter-spacing: 3px; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { color: var(--white); text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; transition: color 0.3s; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--primary-gold); }
+        .cta-button { background: var(--gradient-gold); color: var(--primary-dark); padding: 0.8rem 2rem; border: none; font-size: 0.9rem; font-weight: bold; letter-spacing: 1px; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; text-transform: uppercase; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201, 169, 89, 0.3); }
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; perspective: 1000px; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at center, #1a2a4a 0%, var(--primary-dark) 70%); }
+        .floating-elements { position: absolute; width: 100%; height: 100%; overflow: hidden; }
+        .float-element { position: absolute; border: 1px solid rgba(201, 169, 89, 0.1); border-radius: 50%; animation: float 20s infinite ease-in-out; }
+        .float-element:nth-child(1) { width: 300px; height: 300px; top: 10%; left: 10%; animation-delay: 0s; }
+        .float-element:nth-child(2) { width: 200px; height: 200px; top: 60%; right: 15%; animation-delay: -5s; }
+        .float-element:nth-child(3) { width: 150px; height: 150px; bottom: 20%; left: 20%; animation-delay: -10s; }
+        @keyframes float { 0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); } 25% { transform: translate(30px, -30px) rotate(90deg) scale(1.1); } 50% { transform: translate(-20px, 20px) rotate(180deg) scale(0.9); } 75% { transform: translate(20px, 30px) rotate(270deg) scale(1.05); } }
+        .hero-content { text-align: center; z-index: 10; transform-style: preserve-3d; }
+        .hero-title { font-size: 4rem; font-weight: bold; margin-bottom: 1.5rem; background: var(--gradient-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 5px; text-transform: uppercase; animation: titleFloat 3s ease-in-out infinite; }
+        @keyframes titleFloat { 0%, 100% { transform: translateY(0) rotateX(0deg); } 50% { transform: translateY(-10px) rotateX(5deg); } }
+        .hero-subtitle { font-size: 1.3rem; color: var(--light-gold); margin-bottom: 2.5rem; letter-spacing: 2px; font-weight: 300; }
+        .hero-buttons { display: flex; gap: 1.5rem; justify-content: center; }
+        .secondary-button { background: transparent; color: var(--primary-gold); padding: 0.8rem 2rem; border: 2px solid var(--primary-gold); font-size: 0.9rem; font-weight: bold; letter-spacing: 1px; cursor: pointer; transition: all 0.3s; text-transform: uppercase; }
+        .secondary-button:hover { background: var(--primary-gold); color: var(--primary-dark); }
+        .stats { padding: 5rem 5%; background: linear-gradient(180deg, var(--primary-dark) 0%, #0d1f3a 100%); display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+        .stat-card { text-align: center; padding: 2rem; border: 1px solid rgba(201, 169, 89, 0.2); border-radius: 10px; background: rgba(255, 255, 255, 0.02); transition: transform 0.3s, border-color 0.3s; }
+        .stat-card:hover { transform: translateY(-10px); border-color: var(--primary-gold); }
+        .stat-number { font-size: 3rem; font-weight: bold; color: var(--primary-gold); margin-bottom: 0.5rem; }
+        .stat-label { color: var(--light-gold); font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
+        .services { padding: 6rem 5%; background: #0d1f3a; }
+        .section-title { text-align: center; font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 1rem; letter-spacing: 3px; text-transform: uppercase; }
+        .section-subtitle { text-align: center; color: var(--light-gold); margin-bottom: 4rem; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .service-card { background: rgba(255, 255, 255, 0.03); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(201, 169, 89, 0.1); transition: all 0.4s; position: relative; overflow: hidden; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--gradient-gold); transform: scaleX(0); transition: transform 0.4s; }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card:hover { transform: translateY(-15px) scale(1.02); border-color: var(--primary-gold); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+        .service-icon { font-size: 3rem; margin-bottom: 1.5rem; }
+        .service-title { font-size: 1.4rem; color: var(--white); margin-bottom: 1rem; letter-spacing: 1px; }
+        .service-description { color: var(--gray-medium); line-height: 1.8; font-size: 0.95rem; }
+        .about { padding: 6rem 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; background: var(--primary-dark); }
+        .about-image { position: relative; height: 500px; border-radius: 15px; overflow: hidden; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4); }
+        .about-image-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #1a2a4a 0%, #0a1628 100%); display: flex; align-items: center; justify-content: center; font-size: 5rem; color: var(--primary-gold); }
+        .about-content h2 { font-size: 2.5rem; color: var(--primary-gold); margin-bottom: 1.5rem; letter-spacing: 2px; text-transform: uppercase; }
+        .about-content p { color: var(--light-gold); line-height: 2; margin-bottom: 1.5rem; font-size: 1.05rem; }
+        .testimonials { padding: 6rem 5%; background: #0d1f3a; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .testimonial-card { background: rgba(255, 255, 255, 0.03); padding: 2rem; border-radius: 15px; border: 1px solid rgba(201, 169, 89, 0.1); transition: all 0.3s; }
+        .testimonial-card:hover { transform: translateY(-5px); border-color: var(--primary-gold); }
+        .testimonial-text { color: var(--light-gold); line-height: 1.8; margin-bottom: 1.5rem; font-style: italic; }
+        .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+        .author-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-gold); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--primary-dark); font-weight: bold; }
+        .author-info h4 { color: var(--white); font-size: 1rem; margin-bottom: 0.3rem; }
+        .author-info p { color: var(--gray-medium); font-size: 0.85rem; }
+        .contact { padding: 6rem 5%; background: var(--primary-dark); }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .contact-info h3 { font-size: 2rem; color: var(--primary-gold); margin-bottom: 1.5rem; }
+        .contact-details { margin-top: 2rem; }
+        .contact-item { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; color: var(--light-gold); }
+        .contact-icon { width: 50px; height: 50px; border-radius: 50%; background: rgba(201, 169, 89, 0.1); display: flex; align-items: center; justify-content: center; color: var(--primary-gold); font-size: 1.2rem; }
+        .contact-form { background: rgba(255, 255, 255, 0.03); padding: 3rem; border-radius: 15px; border: 1px solid rgba(201, 169, 89, 0.1); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; color: var(--light-gold); margin-bottom: 0.5rem; font-size: 0.9rem; letter-spacing: 1px; }
+        .form-group input, .form-group textarea { width: 100%; padding: 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(201, 169, 89, 0.2); border-radius: 8px; color: var(--white); font-size: 1rem; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-gold); }
+        .form-group textarea { height: 150px; resize: none; }
+        footer { padding: 3rem 5%; background: #050d1a; border-top: 1px solid rgba(201, 169, 89, 0.2); }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
+        .footer-brand p { color: var(--gray-medium); line-height: 1.8; margin-top: 1rem; }
+        .footer-links h4 { color: var(--primary-gold); margin-bottom: 1.5rem; font-size: 1rem; letter-spacing: 1px; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: var(--gray-medium); text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--primary-gold); }
+        .footer-bottom { text-align: center; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(201, 169, 89, 0.1); color: var(--gray-medium); font-size: 0.9rem; }
+        @media (max-width: 1024px) { .stats, .services-grid, .testimonial-grid { grid-template-columns: repeat(2, 1fr); } .about, .contact-container { grid-template-columns: 1fr; } .footer-content { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { .nav-links { display: none; } .hero-title { font-size: 2.5rem; } .stats, .services-grid, .testimonial-grid { grid-template-columns: 1fr; } .hero-buttons { flex-direction: column; align-items: center; } .footer-content { grid-template-columns: 1fr; } }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Prestige Wealth</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="cta-button">Free Consultation</button>
+    </nav>
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="floating-elements">
+            <div class="float-element"></div>
+            <div class="float-element"></div>
+            <div class="float-element"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Prestige Wealth Management</h1>
+            <p class="hero-subtitle">Securing Your Legacy, Building Your Future</p>
+            <div class="hero-buttons">
+                <button class="cta-button">Get Started</button>
+                <button class="secondary-button">Learn More</button>
+            </div>
+        </div>
+    </section>
+    <section class="stats">
+        <div class="stat-card fade-in"><div class="stat-number">$2.5B+</div><div class="stat-label">Assets Under Management</div></div>
+        <div class="stat-card fade-in"><div class="stat-number">15K+</div><div class="stat-label">Happy Clients</div></div>
+        <div class="stat-card fade-in"><div class="stat-number">25+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat-card fade-in"><div class="stat-number">98%</div><div class="stat-label">Client Retention Rate</div></div>
+    </section>
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive wealth management solutions tailored to your unique financial goals.</p>
+        <div class="services-grid">
+            <div class="service-card fade-in"><div class="service-icon">📊</div><h3 class="service-title">Investment Management</h3><p class="service-description">Strategic portfolio management with diversified investment strategies designed to maximize returns while minimizing risk.</p></div>
+            <div class="service-card fade-in"><div class="service-icon">🏛️</div><h3 class="service-title">Estate Planning</h3><p class="service-description">Comprehensive estate planning services to protect your assets and ensure your legacy is preserved.</p></div>
+            <div class="service-card fade-in"><div class="service-icon">💼</div><h3 class="service-title">Retirement Planning</h3><p class="service-description">Customized retirement strategies to help you achieve financial independence and peace of mind.</p></div>
+            <div class="service-card fade-in"><div class="service-icon">📈</div><h3 class="service-title">Tax Optimization</h3><p class="service-description">Advanced tax planning strategies to minimize liability and maximize wealth accumulation.</p></div>
+            <div class="service-card fade-in"><div class="service-icon">🛡️</div><h3 class="service-title">Risk Management</h3><p class="service-description">Comprehensive risk assessment and mitigation to protect your wealth from market volatility.</p></div>
+            <div class="service-card fade-in"><div class="service-icon">👨‍👩‍👧</div><h3 class="service-title">Family Office Services</h3><p class="service-description">Holistic family office solutions including philanthropy guidance and multi-generational wealth transfer.</p></div>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="about-image fade-in"><div class="about-image-placeholder">🏢</div></div>
+        <div class="about-content fade-in">
+            <h2>About Prestige Wealth</h2>
+            <p>For over 25 years, Prestige Wealth Management has been the trusted partner for high-net-worth individuals and families seeking sophisticated financial solutions.</p>
+            <p>Our team of certified financial planners, investment advisors, and estate planning specialists work collaboratively to create customized strategies aligned with your goals.</p>
+            <p>We believe in building lasting relationships based on trust, transparency, and exceptional service.</p>
+            <button class="cta-button">Meet Our Team</button>
+        </div>
+    </section>
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">Client Testimonials</h2>
+        <p class="section-subtitle">Hear from our satisfied clients about their experience.</p>
+        <div class="testimonial-grid">
+            <div class="testimonial-card fade-in"><p class="testimonial-text">"Prestige Wealth has transformed my financial future. Their personalized approach and expert guidance have helped me achieve goals I never thought possible."</p><div class="testimonial-author"><div class="author-avatar">JM</div><div class="author-info"><h4>James Mitchell</h4><p>CEO, Tech Innovations</p></div></div></div>
+            <div class="testimonial-card fade-in"><p class="testimonial-text">"The team understands the complexities of managing substantial wealth. Their attention to detail and proactive communication is unmatched."</p><div class="testimonial-author"><div class="author-avatar">SR</div><div class="author-info"><h4>Sarah Richardson</h4><p>Healthcare Executive</p></div></div></div>
+            <div class="testimonial-card fade-in"><p class="testimonial-text">"I've worked with several firms, but Prestige stands out for their integrity, expertise, and genuine care for their clients' wellbeing."</p><div class="testimonial-author"><div class="author-avatar">RK</div><div class="author-info"><h4>Robert Kim</h4><p>Real Estate Developer</p></div></div></div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h3>Get In Touch</h3>
+                <p style="color: var(--light-gold); line-height: 1.8;">Ready to take control of your financial future? Schedule a complimentary consultation today.</p>
+                <div class="contact-details">
+                    <div class="contact-item"><div class="contact-icon">📍</div><span>123 Wall Street, Suite 500, New York, NY 10005</span></div>
+                    <div class="contact-item"><div class="contact-icon">📞</div><span>+1 (800) 555-0123</span></div>
+                    <div class="contact-item"><div class="contact-icon">✉️</div><span>info@prestigewealth.com</span></div>
+                    <div class="contact-item"><div class="contact-icon">🕐</div><span>Mon - Fri: 8AM - 6PM EST</span></div>
+                </div>
+            </div>
+            <form class="contact-form fade-in">
+                <div class="form-group"><label>Full Name</label><input type="text" placeholder="John Doe"></div>
+                <div class="form-group"><label>Email Address</label><input type="email" placeholder="john@example.com"></div>
+                <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+1 (555) 000-0000"></div>
+                <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your financial goals..."></textarea></div>
+                <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand"><div class="logo">Prestige Wealth</div><p>Your trusted partner in building and preserving wealth for generations.</p></div>
+            <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul></div>
+            <div class="footer-links"><h4>Services</h4><ul><li><a href="#">Investment Management</a></li><li><a href="#">Estate Planning</a></li><li><a href="#">Retirement Planning</a></li><li><a href="#">Tax Optimization</a></li></ul></div>
+            <div class="footer-links"><h4>Legal</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Disclosures</a></li><li><a href="#">Compliance</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>© 2024 Prestige Wealth Management. All rights reserved. SEC Registered Investment Advisor.</p></div>
+    </footer>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function(e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        window.addEventListener('scroll', () => { const scrolled = window.pageYOffset; document.querySelectorAll('.float-element').forEach((el, i) => { el.style.transform = `translateY(${scrolled * (i + 1) * 0.1}px)`; }); });
+        document.querySelector('.contact-form').addEventListener('submit', function(e) { e.preventDefault(); alert('Thank you! Our team will contact you within 24 hours.'); this.reset(); });
+        document.querySelectorAll('.cta-button, .secondary-button').forEach(btn => { btn.addEventListener('click', function() { document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }); });
+        const heroContent = document.querySelector('.hero-content');
+        document.addEventListener('mousemove', (e) => { const xAxis = (window.innerWidth / 2 - e.pageX) / 50; const yAxis = (window.innerHeight / 2 - e.pageY) / 50; heroContent.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`; });
+    </script>
+</body>
+</html>
